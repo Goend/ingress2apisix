@@ -24,6 +24,7 @@ RUN apk add --no-cache ca-certificates && adduser -D -u 10001 app
 WORKDIR /home/app
 COPY --from=build /out/ingress2apisix /usr/local/bin/ingress2apisix
 COPY --from=build /src/转换示例文档-0827.md /home/app/docs/转换示例文档-0827.md
+COPY --from=build /src/apisix-performance-2026-09-02.md /home/app/docs/apisix-performance-2026-09-02.md
 RUN chown -R app:app /home/app/docs
 USER app
 ENTRYPOINT ["ingress2apisix"]
